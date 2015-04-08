@@ -54,15 +54,13 @@
 					mozallowfullscreen: 'mozallowfullscreen',
 					allowfullscreen: 'allowfullscreen'
 				});
-			
+
 			var mask = $('<div />').attr('id', 'popup-mask').appendTo($('body'));
 			var inner = $('<div />').attr('id', 'popup-inner').appendTo(mask);
-			var closer = $('<a />').addClass('close').html('&times;').attr('href', '#').appendTo(inner).on('click', hidePopup);
-			var content = $('<div />').attr('id', 'popup-content').appendTo(inner);
+			var closer = $('<a />').addClass('popup-close').html('&times;').attr('href', '#').appendTo(inner).on('click', hidePopup);
+			var content = $('<div />').attr('id', 'popup-content').append(iframe).appendTo(inner);
 
-			mask.fadeIn(function () {
-				$('#popup-content').append(iframe).fadeIn(100);
-			});
+			mask.fadeIn(100);
 
 			popup_is_showing = true;
 
