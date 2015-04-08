@@ -3,8 +3,7 @@
  */
 (function ($) {
 	$.fn.videopopup = function (action) {
-		var popup_is_showing,
- 			settings = $.extend({
+		var settings = $.extend({
  				// Vimeo options
 				autoplay: true,
 				title:    false,
@@ -62,8 +61,6 @@
 
 			mask.fadeIn(100);
 
-			popup_is_showing = true;
-
 			$(document).on('keyup', $.proxy(handleKeypress, this));
 		}
 
@@ -76,12 +73,7 @@
 		}
 
 		function hidePopup() {
-			if (!popup_is_showing) {
-				return false;
-			}
-
 			$('#popup-mask').fadeOut(function () {
-				popup_is_showing = false;
 				$('#popup-mask').remove();
 			});
 
