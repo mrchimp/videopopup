@@ -25,11 +25,14 @@ Do something like the following to make your links work:
 
 ## Options ##
 
-All options are optional. Defaults are shown below. Options affect either Vimeo or Youtube links but you can specify them all together - it won't cause problems.
+All options are optional. Defaults are shown below. Most options affect either Vimeo or Youtube links but you can specify them all together - it won't cause problems.
+
+### Options for both ###
+
+* autoplay (true)
 
 ### Options for Vimeo Links ###
 
-* autoplay (true)
 * title (false)
 * byline (false)
 * portrait (false)

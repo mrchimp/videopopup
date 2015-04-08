@@ -38,7 +38,7 @@
 		
 		function makeURL(link) {
 			if (link.data('type') === 'youtube') {
-				return 'https://www.youtube.com/embed/' + link.data('youtube') + '?rel=0&amp;controls=' + (settings.controls ? '1' : '0') +  '&amp;showinfo=' + (settings.showinfo ? '1' : '0');
+				return 'https://www.youtube.com/embed/' + link.data('youtube') + '?rel=0&amp;autoplay=' + (settings.autoplay ? '1' : '0') + '&amp;controls=' + (settings.controls ? '1' : '0') +  '&amp;showinfo=' + (settings.showinfo ? '1' : '0');
 			} else {
 				return 'http://player.vimeo.com/video/' + link.data('vimeo') + '?autoplay=' + (settings.autoplay ? '1' : '0') + '&amp;title=' + (settings.title ? '1' : '0') + '&amp;byline=' + (settings.byline ? '1' : '0') + '&amp;portrait=' + (settings.portrait ? '1' : '0') + '&amp;color=' + settings.color;
 			}
