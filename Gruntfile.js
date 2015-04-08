@@ -37,6 +37,12 @@ module.exports = function(grunt) {
         }
       }
     },
+    autoprefixer: {
+      dist: {
+        src: 'dist/videopopup.min.css',
+        dest: 'dist/videopopup.min.css'
+      }
+    },
     jshint: {
       dist: {
         options: {
@@ -80,9 +86,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-focus');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
-  grunt.registerTask('css', ['less']);
+  grunt.registerTask('css', ['less', 'autoprefixer']);
   grunt.registerTask('default', ['js', 'css']);
   grunt.registerTask('watch-all', ['focus:all']);
 };
