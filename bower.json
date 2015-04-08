@@ -1,9 +1,9 @@
 {
   "name": "videopopup",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/mrchimp/videopopup",
   "authors": [
-    "Jake Gully <jake@yadda.co.uk>"
+    "mrchimp <chimpytk@gmail.com>"
   ],
   "description": "Simple lightbox for vimeo/youtube videos.",
   "license": "MIT",
