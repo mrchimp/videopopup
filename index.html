@@ -23,6 +23,10 @@
 		<script>
 			$('.vimeo-link, .youtube-link').videopopup({
 				color: '#f00'
+			}).on('video:show', function () {
+				console.log('Show event was fired.');
+			}).on('video:hide', function () {
+				console.log('Hide event was fired.');
 			});
 
 			$('.proxy-link').on('click', function () {

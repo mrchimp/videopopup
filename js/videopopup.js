@@ -3,6 +3,7 @@
  */
 (function ($) {
 	$.fn.videopopup = function (action) {
+    var elems = $(this);
 		var settings = $.extend({
  				// Vimeo options
 				autoplay: true,
@@ -19,10 +20,10 @@
 
 		switch (action) {
 			case 'show':
-				showPopup($(this).first());
+				showPopup.call(this, $(this).first());
 				break;
 			case 'hide':
-				hidePopup();
+				hidePopup.call(this);
 				break;
 			default:
 				this.each(function () {
@@ -31,7 +32,7 @@
 						.on('click', function (e) {
 							if (e.button === 0) { // Don't hijack middle click!
 								e.preventDefault();
-								showPopup($(this));
+								showPopup.call(this, $(this));
 							}
 						});
 				});
@@ -57,19 +58,20 @@
 
 			var mask = $('<div />').attr('id', 'popup-mask').appendTo($('body'));
 			var inner = $('<div />').attr('id', 'popup-inner').appendTo(mask);
-			var closer = $('<a />').addClass('popup-close').html(settings.close_content).attr('href', '#').appendTo(inner).on('click', hidePopup);
+			var closer = $('<a />').addClass('popup-close').html(settings.close_content).attr('href', '#').appendTo(inner).on('click', $.proxy(hidePopup, this));
 			var content = $('<div />').attr('id', 'popup-content').append(iframe).appendTo(inner);
 
 			mask.fadeIn(100);
 
 			$(document).on('keyup', $.proxy(handleKeypress, this));
+      $(this).trigger('video:show');
 		}
 
 		function handleKeypress(e) {
 			e.preventDefault();
 
 			if (e.which == 27) { // esc
-				hidePopup();
+				hidePopup.call(this);
 			}
 		}
 
@@ -79,6 +81,9 @@
 			});
 
 			$(document).off('keyup', $.proxy(handleKeypress, this));
+      $(this).trigger('video:hide');
 		}
+
+    return this;
 	};
 }(jQuery));
