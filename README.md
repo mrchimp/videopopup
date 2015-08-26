@@ -42,3 +42,17 @@ All options are optional. Defaults are shown below. Most options affect either V
 
 * controls (true)
 * showinfo (false)
+
+### Events ###
+
+You can use events like so:
+
+    $('.my-link').videopopup().on('video:show', function() {
+      console.log('This video is now showing.');
+    });
+
+#### Available events: ####
+
+* video:show
+* video:hide
+
